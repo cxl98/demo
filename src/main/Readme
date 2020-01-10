@@ -1,0 +1,8 @@
+control包层写对应的控制代码 与前端进行交互的接口控制层
+dao层数据操作层 用的是mybatis 进行对数据库的操作
+service 服务发现层 imp具体业务实现
+netty可以单独写  也可以写在service里 业务代码实现代码写在handle
+util 工具类
+resources mapper 与dao层对应
+大家的命名规范要求用英文命名类名或者易懂的简写拼音
+model层用了data注解不需要再去写set、get方法可以选择不用。
