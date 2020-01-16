@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta http-equiv="Page-Enter" content="blendTrans(Duration=2.0)" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./CSS/登录.css">
+        <link rel="stylesheet" href="./CSS/animate.min.css">
+
+        <script src="jquery-3.3.1.js"></script>
+        <script src="jquery-3.3.1.min.js"></script>
+        <script>
+            function login(){
+                var g_pwd=document.getElementById("pas").value;
+                var g_id=document.getElementById("user").value;
+                var json='{"g_id":"'+g_id+'","g_pwd":"'+g_pwd+'"}';
+                $.ajax({
+                    async: true,
+                    type: "POST",
+                    contentType:"application/json;charset=utf-8",
+                    data: json,
+                    url: "/home/login",
+                    success: function (data) {
+                        console.log(data);
+                        alert(data);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div id="logo">
+            <img src="./img/pang.gif" alt="" style="float: left; margin-left: -130px;">
+        </div>
+        <div id="header" class="animated fadeInDown">
+            <div id="login" class="animated bounce">
+                <div id="content">
+                <h1 id="text">用户登录</h1>
+                    <input id="user" type="text" dirname="name" required="required" placeholder="用户名" name="u"/>
+                    <input id="pas" type="password" dirname="pas" required="required" placeholder="密码" name="p">
+                    <button class="but" onclick="login()">登录</button>
+                <h3><a href="./注册.html" style="color: black;">用户注册</a></h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
