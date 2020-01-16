@@ -1,6 +1,7 @@
 package com.example.demo.service.imp;
 
-import com.example.demo.dao.Users;
+import com.example.demo.dao.UsersMapping;
+import com.example.demo.model.Users;
 import com.example.demo.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class UsersServiceImp implements UsersService {
 
     @Autowired
-    private Users users;
+    private UsersMapping users;
 
     @Override
     public Users Login(int g_id, String pwd) {

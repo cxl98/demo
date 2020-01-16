@@ -16,10 +16,13 @@
             type: "POST",
             contentType:"application/json;charset=utf-8",
             data: json,
-            url: "/home/Register",
+            url: "/home/login",
             success: function (data) {
                 console.log(data);
                 alert(data);
+            },
+            error: function (data) {
+                console.log(data);
             }
         });
         }

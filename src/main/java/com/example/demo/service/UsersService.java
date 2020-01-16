@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.Users;
-import org.apache.ibatis.annotations.Param;
+import com.example.demo.model.Users;
 
 public interface UsersService {
-    Users Login(@Param("g_id") int g_id, @Param("g_pwd") String g_pwd);
-    Users Register(@Param("g_id") int g_id,@Param("g_pwd") String g_pwd);
+    public Users Login(int g_id, String g_pwd);
+    public Users Register( int g_id, String g_pwd);
 }
