@@ -19,12 +19,13 @@ public class UsersController {
 
         Users u = JSON.parseObject(json.toString(), Users.class);
         System.out.println(u.getG_id());
-        String s="ok";
-        String s1="no";
+
         if (us.Login(u.getG_id(),u.getG_pwd())!=null){
-            return s;
+            System.out.println("ok");
+            return "true";
         }else {
-            return s1;
+            System.out.println("no");
+            return "false";
         }
     }
 
