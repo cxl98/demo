@@ -2,7 +2,7 @@ package com.example.demo.control;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.model.Users;
+import com.example.demo.model.User;
 import com.example.demo.service.imp.UsersServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,10 @@ public class UsersController {
     @RequestMapping(value = "/home/login",method = RequestMethod.POST)
     public String Login(@RequestBody JSONObject json){
 
-        Users u = JSON.parseObject(json.toString(), Users.class);
-        System.out.println(u.getG_id());
+        User u = JSON.parseObject(json.toString(), User.class);
+        System.out.println(u.getU_id());
 
-        if (us.Login(u.getG_id(),u.getG_pwd())!=null){
+        if (us.Login(u.getU_id(),u.getPwd())!=null){
             System.out.println("ok");
             return "true";
         }else {
@@ -31,9 +31,9 @@ public class UsersController {
 
     @RequestMapping(value = "/home/Register",method = RequestMethod.POST)
     public String Register(@RequestBody JSONObject json){
-        Users u = JSON.parseObject(json.toString(), Users.class);
+        User u = JSON.parseObject(json.toString(), User.class);
         System.out.println(u.toString());
-        if (us.Register(u.getG_id(),u.getG_pwd())!=null){
+        if (us.Register(u.getU_id(),u.getPwd())!=null){
             return "true";
         }else {
             return "false";
