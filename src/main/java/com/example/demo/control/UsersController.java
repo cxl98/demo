@@ -28,6 +28,7 @@ public class UsersController {
             System.out.println("no");
             return new ReturnT<>(ReturnT.FAIL_CODE,"帐号密码不能为空,");
         }
+
     }
 
     @RequestMapping(value = "/home/Register",method = RequestMethod.POST)
