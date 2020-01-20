@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.EquipMsgMapper">
+
+    <insert id="add" parameterType="com.example.demo.model.EquipMsg" useGeneratedKeys="true" keyProperty="id">
+        insert into equipment_message (equip_id,
+    attack,
+    phy_def,
+    value,
+    details,
+    quality)
+    </insert>
+</mapper>

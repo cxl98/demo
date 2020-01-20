@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class Game_data {
+public class GameData {
     int id;
     String user_id;
     String username;
