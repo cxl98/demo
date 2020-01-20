@@ -8,6 +8,6 @@
     </select>
 
     <insert id="Register" >
-        insert into user (uid,user_id,pwd,username;) value (#{uid},#{user_id},#{pwd},#{username})
+        insert into user (uid,user_id,pwd,username) value (#{uid},#{user_id},#{pwd},#{username})
     </insert>
 </mapper>
