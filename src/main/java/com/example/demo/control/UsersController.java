@@ -6,7 +6,6 @@ import com.example.demo.model.User;
 import com.example.demo.service.imp.UsersServiceImp;
 import com.example.demo.util.ReturnT;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
