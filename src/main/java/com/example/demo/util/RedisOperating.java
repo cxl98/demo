@@ -24,7 +24,7 @@ public class RedisOperating {
         System.out.println("getJedis时间:" + (t4 - t3));
 
         Object value = jedis.get(key);
-
+        //System.out.println(value);
         RedisUtils.returnResource(jedis);
         return value;
     }

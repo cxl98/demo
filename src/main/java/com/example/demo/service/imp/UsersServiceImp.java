@@ -13,13 +13,14 @@ public class UsersServiceImp implements UsersService {
     private UsersMapping users;
 
     @Override
-    public User Login(int g_id, String pwd) {
+    public User Login(String g_id, String pwd) {
         return users.Login(g_id, pwd);
     }
 
     @Override
-    public User Register(int g_id, String g_pwd) {
-        return users.Register(g_id, g_pwd);
+    public int Register(int uid,String u_id, String pwd, String name) {
+        return users.Register(uid,u_id, pwd, name);
     }
+
 
 }

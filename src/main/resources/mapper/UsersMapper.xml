@@ -3,12 +3,12 @@
 <mapper namespace="com.example.demo.dao.UsersMapping">
 
     <!--sql 语句   id对应方法名  resultType 对应上实体层 -->
-    <select id="Login" resultType="com.example.demo.model.Users">
+    <select id="Login" resultType="com.example.demo.model.User">
 
-        select *from users where g_id = #{g_id} and g_pwd = #{g_pwd}
+        select *from user where u_id = #{g_id} and g_pwd = #{g_pwd}
     </select>
 
     <insert id="Register" >
-        insert into users (g_id, g_pwd) value (#{g_id},#{g_id})
+        insert into user (uid,user_id, pwd, username) value (#{uid},#{u_id},#{pwd},#{name})
     </insert>
 </mapper>
