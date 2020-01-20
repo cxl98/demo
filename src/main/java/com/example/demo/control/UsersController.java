@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class UsersController {
 
     @Autowired
@@ -31,12 +31,16 @@ public class UsersController {
 
     @RequestMapping(value = "/home/Register",method = RequestMethod.POST)
     public String Register(@RequestBody JSONObject json){
+        System.out.println(json);
         User u = JSON.parseObject(json.toString(), User.class);
+        int newNum = (int)((Math.random()*9+1)*100000);
+
         System.out.println(u.toString());
-        if (us.Register(u.getU_id(),u.getPwd())!=null){
+        if (us.Register(newNum,u.getU_id(),u.getPwd(),u.getUsername())==1){
             return "true";
         }else {
             return "false";
         }
     }
+
 }

@@ -10,13 +10,14 @@
         function login(){
             var g_pwd=document.getElementById("pas").value;
             var g_id=document.getElementById("user").value;
-            var json='{"g_id":"'+g_id+'","g_pwd":"'+g_pwd+'"}';
+            var g_name=document.getElementById("name").value;
+            var json='{"u_id":"'+g_id+'","pwd":"'+g_pwd+'","username":"'+g_name+'"}';
         $.ajax({
             async: true,
             type: "POST",
             contentType:"application/json;charset=utf-8",
             data: json,
-            url: "/home/login",
+            url: "/home/Register",
             success: function (data) {
                 console.log(data);
                 alert(data);
@@ -93,6 +94,7 @@
     <h1>登录</h1>
         <input id="user" type="text" dirname="name" required="required" placeholder="用户名" name="u"/>
         <input id="pas" type="password" dirname="pas" required="required" placeholder="密码" name="p">
+        <input id="name" type="text" dirname="na" required="required" placeholder="用户名" name="m"/>
     <button class="but" onclick="login()">登录</button>
 
 </div>
