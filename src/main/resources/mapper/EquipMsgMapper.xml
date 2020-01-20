@@ -4,11 +4,13 @@
 <mapper namespace="com.example.demo.dao.EquipMsgMapper">
 
     <insert id="add" parameterType="com.example.demo.model.EquipMsg" useGeneratedKeys="true" keyProperty="id">
-        insert into equipment_message (equip_id,
-    attack,
-    phy_def,
-    value,
-    details,
-    quality)
+        insert into equipment_message
+         (  equip_id,
+            attack,
+            phy_def,
+            value,
+            details,
+            quality)
+            value (#{equip_id},#{attack},#{phy_def},#{value},#{details},#{quality})
     </insert>
 </mapper>

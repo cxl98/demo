@@ -13,7 +13,7 @@ public class UsersServiceImp implements UsersService {
     private UsersMapping users;
 
     @Override
-    public User Login(String g_id, String pwd) {
+    public User Login(String  g_id, String pwd) {
         return users.Login(g_id, pwd);
     }
 
