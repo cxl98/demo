@@ -12,7 +12,9 @@ public class ReturnT<T> implements Serializable {
     public static final ReturnT<String> FAIL = new ReturnT<String>(FAIL_CODE, null);
 
     private int code;
+
     private String msg;
+
     private T data;
     public ReturnT(){}
     public ReturnT(int code, String msg) {
