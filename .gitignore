@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by .ignore support plugin (hsz.mobi)
 ### Example user template template
 ### Example user template
@@ -11,3 +12,12 @@ gen
 将删除 .idea/dataSources/
 将删除 .idea/workspace.xml
 将删除 target/
+=======
+# for idea
+*.iml
+/.idea
+*/target
+**/target
+.DS_Store
+.gitattributes
+>>>>>>> github/master

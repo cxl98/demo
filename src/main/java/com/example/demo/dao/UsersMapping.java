@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsersMapping {
-     User Login(String g_id, String g_pwd);
-     int Register(int uid,String u_id, String pwd, String name);
+     User Login(int g_id, String g_pwd);
+     int Register(int g_id,String g_pwd);
 }
