@@ -3,7 +3,61 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.GameDataMapper">
 
+
+    <!--对于刚注册的人，先初始化一个空的data，等离线时更新-->
     <insert id="add" parameterType="com.example.demo.model.GameData" useGeneratedKeys="true" keyProperty="id">
-        insert into game_data () value ()
+        insert into game_data (
+                               id,
+                               user_id,
+                               username,
+                               strength,
+                               fight_count,
+                               equipment,
+                               money,
+                               career,
+                               equipped,
+                               res_data,
+                               online_time)
+                    value ( null,
+                            #{user_id},
+                            #{username},
+                            #{strength},
+                            #{fight_count},
+                            #{equipment},
+                            #{money},
+                            #{carrer},
+                            #{equipped},
+                            #{res_data},
+                            #{online_time})
     </insert>
+
+
+    <!--用于加载玩家入库数据，加载上来后进行初始化。在登录时完成-->
+    <select id="gameData" resultType="com.example.demo.model.GameData">
+        select  id
+             ,user_id
+             ,username
+             ,strength
+             ,fight_count
+             ,equipment
+             ,money
+             ,career
+             ,equipped
+             ,res_data
+             ,online_time from game_data where user_id = #{user_id}
+    </select>
+
+    <update id="updateGameData" parameterType="com.example.demo.model.GameData">
+        update game_data set id=#{id}
+                           ,user_id=#{user_id}
+                           ,username=#{username}
+                           ,strength=#{strength}
+                           ,fight_count=#{fight_count}
+                           ,equipment=#{equipment}
+                           ,money=#{money}
+                           ,career=#{career}
+                           ,equipped=#{equipped}
+                           ,online_time=#{online_time} where user_id = #{user_id}
+
+    </update>
 </mapper>

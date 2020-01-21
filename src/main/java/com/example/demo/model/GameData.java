@@ -15,7 +15,7 @@ public class GameData {
     int money;
     String career;
     String equipped;
-    Date res_date;
+    Date res_data;
     Date online_time;
 
 }

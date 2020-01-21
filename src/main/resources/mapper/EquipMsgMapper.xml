@@ -8,9 +8,19 @@
          (  equip_id,
             attack,
             phy_def,
-            value,
+            eq_value,
             details,
             quality)
             value (#{equip_id},#{attack},#{phy_def},#{value},#{details},#{quality})
     </insert>
+
+
+    <!--用于加载装备列表，已装备或者是背包中的装备均可复用-->
+    <select id="equipments" resultType="com.example.demo.model.EquipMsg" parameterType="java.util.List">
+        select equip_id,attack,phy_def,eq_value,details,quality from equipment_message
+        where equip_id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 </mapper>

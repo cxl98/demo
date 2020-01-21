@@ -17,4 +17,12 @@ public class RoleServiceImp implements RoleService {
         return role.Attr(attr) ;
     }
 
+
+    @Override
+    public PlayerMes initPlayer() {
+
+
+        return null;
+    }
+
 }

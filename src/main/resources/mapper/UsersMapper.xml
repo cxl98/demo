@@ -4,10 +4,10 @@
 
     <!--sql 语句   id对应方法名  resultType 对应上dao层接口 -->
     <select id="Login" resultType="com.example.demo.model.User">
-        select *from user where user_id = #{g_id} and pwd = #{g_pwd}
+        select *from player where user_id = #{g_id} and pwd = #{g_pwd}
     </select>
 
     <insert id="Register" >
-        insert into user (uid,user_id,pwd,username) value (#{uid},#{user_id},#{pwd},#{username})
+        insert into player (uid,user_id,pwd,username) value (#{uid},#{user_id},#{pwd},#{username})
     </insert>
 </mapper>

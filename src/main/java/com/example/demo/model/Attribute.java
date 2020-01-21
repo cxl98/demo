@@ -7,10 +7,20 @@ import java.util.Date;
 @Data
 //游戏属性
 public class Attribute {
-    String role;            //角色定义
-    String name;            //玩家命名
-    Date daya ;             //创建日期
-    int blood;              //初始血量
+    /**
+     *
+     * 角色面板属性
+     *
+     *
+     */
+
+    private int role;               //角色职业 1法师 2骑士 3剑士
+    private int hp;         //血量
+    private int mp;         //蓝量
+    private List<EquipMsg> equipped; //已装备
+    private int def;        //防御力
+    private int damage;     //攻击力
+
     /*
     .
     .
