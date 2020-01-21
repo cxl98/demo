@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class PlayerMes {
+public class PlayerMsg {
 
     /**
      * 这里这个对象可以在redis中做缓存，里面的数据用于实时交互
@@ -21,7 +21,7 @@ public class PlayerMes {
     private String user_id;
     private String username;
     private Attribute playerAttr;   //角色属性
-    private List<EquipMes> bag;     //背包中的装备
+    private List<EquipMsg> bag;     //背包中的装备
     private List<Player> friends;   //好友列表
 
 }
