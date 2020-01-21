@@ -2,7 +2,7 @@ package com.example.demo.model;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.util.List;
 
 @Data
 //游戏属性
