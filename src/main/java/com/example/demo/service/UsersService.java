@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.model.User;
+import com.example.demo.model.Player;
 
 public interface UsersService {
-     User Login(int g_id, String g_pwd);
+     Player Login(int g_id, String g_pwd);
      int Register( int g_id, String g_pwd);
 }

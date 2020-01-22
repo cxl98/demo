@@ -13,7 +13,7 @@ public class GameData {
     int fight_count;
     String equipment;
     int money;
-    String career;
+    int career;
     String equipped;
     Date res_data;
     Date online_time;

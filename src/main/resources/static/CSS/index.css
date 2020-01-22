@@ -1,0 +1,462 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 754px;
+    background-size: 100% 100%; background-repeat: no-repeat;
+}
+#map{
+    background-color: yellow;
+    height: 200px;
+    width: 200px;
+    float: left;
+    display: inline-block;
+    opacity: 0.6;
+    border-radius: 50%;
+}
+#User{
+    float: right;
+    margin-top: 5px;
+    /* display: inline-block; */
+    margin-right: 10px;
+    height: 100px;
+    width: 350px;
+}
+#menu{
+    /* background-color: rgba(0, 0, 230,0.6); */
+    height: 120px;
+    /* width:900px; */
+    /* float: left; */
+    position: absolute;
+    bottom: 20px;
+    left:22%
+}
+#role{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 28px;
+    background-size: 100% 100%; background-repeat: no-repeat;
+    margin-top: 15px;
+    display: inline-block;
+}
+/* #role:hover{
+    width: 55px;
+    height: 55px;
+} */
+#blood{
+    width: 100px;
+    height: 30px;
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    background-color:red;
+    border-radius: 38px;
+    margin-left: 22px;
+    margin-bottom: 8px;
+}
+#gold{
+    background-size: 100% 100%; background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-left: 30px;
+}
+#chat_room{
+    /* float: left; */
+    background: url(../img/chat_room.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 85px;
+    width: 85px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 52px;
+    left: 80px;
+    padding: 0;
+}
+#chat_room:hover{
+    height: 88px;
+    width: 88px;
+}
+#chat textarea{
+    /* background: url(../img/chat_textarea.png) no-repeat;
+    background-size: 100% 100%;
+    border: 0; */
+}
+#fight:hover{
+    height: 89px;
+    width: 95px;
+}
+#self:hover{
+    height: 62px;
+    width: 125px;
+}
+#skill:hover{
+    height: 75px;
+    width: 95px;
+}
+#plot:hover{
+    height: 75px;
+    width: 95px;
+}
+#friend:hover{
+    height: 75px;
+    width: 95px;
+}
+#goods:hover{
+    height: 75px;
+    width: 95px;
+}
+#set:hover{
+    height: 75px;
+    width: 95px;
+}
+#chat{
+    display: none;
+    float: left;
+    margin-top: 410px;
+    margin-left: -190px;
+}
+#help:hover{
+    height: 75px;
+    width: 95px;
+}
+#chat textarea{
+    border-radius: 10px;
+    height: 200px;
+    outline: none;
+}
+#fight{
+    background: url(../img/fightt.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 82px;
+    width: 85px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    /* left: 80px; */
+    padding: 0;
+}
+#self{
+    background: url(../img/self.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 60px;
+    width: 120px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 48px;
+    left: 120px;
+    padding: 0;
+}
+#skill{
+    background: url(../img/skill.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    width: 90px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    left: 260px;
+    padding: 0;
+}
+#plot{
+    background: url(../img/plot.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    width: 90px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    left: 380px;
+    padding: 0;
+}
+#friend{
+    background: url(../img/friend.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    width: 90px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    left: 500px;
+    padding: 0;
+}
+#goods{
+    background: url(../img/goods.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    width: 90px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    left: 620px;
+    padding: 0;
+}
+#set{
+    background: url(../img/set.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    width: 90px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    left: 740px;
+    padding: 0;
+}
+#help{
+    background: url(../img/help.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    width: 90px;
+    /* margin-bottom: 0px; */
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    left: 860px;
+    padding: 0;
+}
+#fight_panel{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#self_panel_warrior,
+#self_panel_magic,
+#self_panel_knight{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#self_panel_warrior_img,#self_panel_magic_img,#self_panel_knight_img,
+#skill_panel_magic_img{
+    height: 140px;
+    float: left;
+    width: 120px;
+}
+#self_panel_warrior h1,
+#self_panel_magic h1,
+#self_panel_knight h1,
+#skill_panel h1{
+    color: white;
+    float: left;
+    text-align: center;
+    /* margin-left: 20px; */
+    font-family: 楷体;
+    margin-left: 20px;
+}
+#hp{
+    color: white;
+    float: left;
+    margin-top: 140px;
+    margin-left: -230px;
+    text-align: center;
+}
+#xl{
+    background: red;
+    height: 30px;
+    width: 200px;
+    display: inline-block;
+    border-radius: 20px;
+    font-size: 22px;
+}
+#mp{
+    color: white;
+    float: left;
+    margin-top: 200px;
+    margin-left: -263px;
+    text-align: center;
+}
+#ll{
+    background: blue;
+    height: 30px;
+    width: 200px;
+    display: inline-block;
+    border-radius: 20px;
+    font-size: 22px;
+}
+#gj{
+    /* float: left; */
+    margin-top: 250px;
+    margin-left: -280px;
+    display: inline-block;
+}
+#gj img{
+    float: left;
+}
+#gj p{
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 16px;
+}
+#fy{
+    display: inline-block;
+}
+#fy img{
+    float: left;
+    margin-left: 40px;
+    margin-top: -30px;
+
+}
+#fy p{
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 16px;
+    margin-left: -20px;
+}
+#skill_panel{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#plot_panel{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#friend_panel{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#goods_panel{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#set_panel{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#help_panel{
+    background: url(../img/panel.png);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 15px;
+    display: none;
+    margin-left: 350px;
+    margin-top: 150px;
+}
+#skill_magic_one{
+    float: left;
+    margin-top: 150px;
+    cursor: pointer;
+    margin-left: -240px;
+}
+#skill_magic_one img{
+    height: 50px;
+}
+#skill_magic_two{
+    float: left;
+    cursor: pointer;
+    margin-left: -20px;
+    margin-top: 150px;
+}
+#skill_magic_two img{
+    height: 50px;
+}
+#skill_magic_three{
+    float: left;
+    cursor: pointer;
+    margin-left: 47px;
+    margin-top: 30px;
+}
+#skill_magic_three img{
+    height: 50px;
+}
+#skill_magic_four{
+    float: left;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 113px;
+}
+#skill_magic_four img{
+    height: 50px;
+}

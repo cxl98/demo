@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EquipMsgController {
+    /**
+     * 加载装备信息
+     */
     @Autowired
     EquipMsgServiceImpl equipMsgService;
 }

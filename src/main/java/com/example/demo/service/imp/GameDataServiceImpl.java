@@ -1,11 +1,15 @@
 package com.example.demo.service.imp;
 
+import com.example.demo.dao.GameDataImp;
+import com.example.demo.dao.GameDataMapper;
 import com.example.demo.model.GameData;
 import com.example.demo.service.GameDataService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GameDataServiceImpl implements GameDataService {
+
+    GameDataMapper gameDataMapper = new GameDataImp();
 
     @Override
     public GameData add(GameData data) {
@@ -26,4 +30,8 @@ public class GameDataServiceImpl implements GameDataService {
     public GameData getDameDataById(String user_id) {
         return null;
     }
+
+
+
+
 }

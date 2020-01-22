@@ -1,12 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Attribute;
+import com.example.demo.model.PlayerMsg;
 
 public interface RoleService   {
+
+
     Attribute Attr(Attribute attr);
-
-
-
 
     /**
      *
@@ -24,5 +24,5 @@ public interface RoleService   {
      *
      * 最终集合在一个对象中
      */
-    PlayerMes initPlayer();
+    PlayerMsg initPlayer(String user_id);
 }
