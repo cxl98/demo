@@ -12,6 +12,7 @@ public class EquipMsg {
     int eq_hp;
     int eq_mp;
     int eq_value;
+    int eq_place;
     String details;
     String quality;
 

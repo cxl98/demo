@@ -16,7 +16,10 @@ public interface EquipMsgMapper {
 
 
 
+
     List<EquipMsg> getEquipMents(List<Integer> list);
+
+    List<EquipMsg> getAllEquipMents();
 
 
 }

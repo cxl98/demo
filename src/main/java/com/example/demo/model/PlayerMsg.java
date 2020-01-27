@@ -23,5 +23,6 @@ public class PlayerMsg {
     private Attribute playerAttr;   //角色属性
     private List<EquipMsg> bag;     //背包中的装备
     private List<Player> friends;   //好友列表
+    private int money;
 
 }

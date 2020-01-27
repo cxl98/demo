@@ -1,19 +1,16 @@
 package com.example.demo.service.imp;
 
 import com.example.demo.dao.*;
-import com.example.demo.model.Attribute;
-import com.example.demo.model.EquipMsg;
-import com.example.demo.model.GameData;
-import com.example.demo.model.PlayerMsg;
+import com.example.demo.model.*;
 import com.example.demo.service.RoleService;
+import com.example.demo.staticValue.Equipment;
 import com.example.demo.staticValue.Role;
-import com.example.demo.utils.MybatisUtil;
 import com.example.demo.utils.SplitEquip;
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -24,7 +21,10 @@ public class RoleServiceImp implements RoleService {
 
     private EquipMsgMapper equipMsgMapper = new EquipMsgImp();
 
-    private static int carrer;
+    private static int career;
+
+    private PlayerMsg newPlayer = new PlayerMsg();
+    private Attribute newPlayerAttr =new Attribute();
 
     @Autowired
     RoleMapping role;
@@ -38,37 +38,55 @@ public class RoleServiceImp implements RoleService {
     @Override
     public PlayerMsg initPlayer(String user_id) {
         GameData gd = gameDataMapper.getDameDataById(user_id);
-        PlayerMsg newPlayer = new PlayerMsg();
-        Attribute newPlayerAttr = new Attribute();
 
         newPlayer.setUser_id(user_id);
         newPlayer.setUsername(gd.getUsername());
-
         newPlayerAttr.setRole(gd.getCareer());
 
-        carrer=gd.getCareer();
+        career=gd.getCareer();
 
         String bags=gd.getEquipment();
 
         newPlayer.setBag(getBags(bags));//调取背包
 
-        List<EquipMsg> equipped=getEquipped(gd.getEquipped());//调取已装备
+        EquipMsg[] equipped=getEquipped(gd.getEquipped());//调取已装备
 
         newPlayerAttr.setEquipped(equipped);
-        newPlayerAttr.setHp(addHP(equipped));
-        newPlayerAttr.setDef(addDef(equipped));
-        newPlayerAttr.setMp(addMP(equipped));
-        newPlayerAttr.setDamage(addDamage(equipped));
+        changeAttr(equipped);
 
         newPlayer.setPlayerAttr(newPlayerAttr);
-
+        newPlayer.setMoney(gd.getMoney());
 
         return newPlayer;
     }
-    private List<EquipMsg> getEquipped(String equipped){
+
+    @Override
+    public Attribute equippedChange(int index, int equipId) {
+        /*
+            从hash中拿出装备，修改玩家已装备的数组，然后还要进行玩家数据更新
+         */
+        newPlayerAttr.getEquipped()[index]=Equipment.equipHash.get(equipId);
+        changeAttr(newPlayerAttr.getEquipped());
+
+        return newPlayer.getPlayerAttr();
+    }
+
+    /**
+     *
+     * @param equipped 是数据库中存的一串序列
+     * @return 返回的是装备数组
+     */
+    private EquipMsg[] getEquipped(String equipped){
         System.out.println(equipped);
-        //转换成装备list
-        return equipMsgMapper.getEquipMents(SplitEquip.getEquipment(equipped));
+        int[] eq = SplitEquip.getEquipped(equipped);
+        System.out.println("int:eq //"+ Arrays.toString(eq));
+        EquipMsg[] equipMsg = new EquipMsg[]{null,null,null,null,null,null,null,null};
+        for(int i=0;i<eq.length;i++){
+            if(eq[i]!=0){
+                equipMsg[i]= Equipment.equipHash.get(eq[i]);
+            }
+        }
+        return equipMsg;
     }
 
     private List<EquipMsg> getBags(String bags){
@@ -76,40 +94,55 @@ public class RoleServiceImp implements RoleService {
         return equipMsgMapper.getEquipMents(SplitEquip.getEquipment(bags));
     }
 
-    private int addHP(List<EquipMsg> equipped){
+    private void changeAttr(EquipMsg[] equipped){
+        newPlayerAttr.setDamage(addDamage(equipped));
+        newPlayerAttr.setMp(addDef(equipped));
+        newPlayerAttr.setHp(addMP(equipped));
+        newPlayerAttr.setDef(addHP(equipped));
+    }
+
+    private int addHP(EquipMsg[] equipped){
         //血
         int extraHp=0;
         for (EquipMsg equipMsg : equipped) {
-            extraHp += equipMsg.getEq_hp();
+            if(equipMsg!=null){
+                extraHp += equipMsg.getEq_hp();
+            }
         }
         return roleAddStrength(extraHp);
     }
 
-    private int addMP(List<EquipMsg> equipped){
+    private int addMP(EquipMsg[] equipped){
         //蓝
         int extraMp=0;
         for (EquipMsg equipMsg : equipped) {
-            extraMp += equipMsg.getEq_mp();
+            if(equipMsg!=null){
+                extraMp += equipMsg.getEq_mp();
+            }
         }
         return roleAddStrength(extraMp);
 
     }
 
-    private int addDef(List<EquipMsg> equipped){
+    private int addDef(EquipMsg[] equipped){
         //防御
         int extraDef=0;
         for (EquipMsg equipMsg : equipped) {
-            extraDef += equipMsg.getPhy_def();
+            if(equipMsg!=null) {
+                extraDef += equipMsg.getPhy_def();
+            }
         }
         return roleAddStrength(extraDef);
 
     }
 
-    private int addDamage(List<EquipMsg> equipped){
+    private int addDamage(EquipMsg[] equipped){
         //攻击
         int extraDamage=0;
         for (EquipMsg equipMsg : equipped) {
-            extraDamage += equipMsg.getAttack();
+            if(equipMsg!=null){
+                extraDamage += equipMsg.getAttack();
+            }
         }
         return roleAddStrength(extraDamage);
 
@@ -117,11 +150,11 @@ public class RoleServiceImp implements RoleService {
 
     //角色相加策略
     private int roleAddStrength(int extra){
-        if (carrer == Role.ROLE_MAGIC){
+        if (career == Role.ROLE_MAGIC){
             return Role.MAGIC_HP+extra;
-        }else if(carrer == Role.ROLE_KNIGHT){
+        }else if(career == Role.ROLE_KNIGHT){
             return Role.KNIGHT_HP+extra;
-        }else if(carrer == Role.ROLE_SWORD){
+        }else if(career == Role.ROLE_SWORD){
             return Role.SWORD_HP;
         }else{
             return 0;

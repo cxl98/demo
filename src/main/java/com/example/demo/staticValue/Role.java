@@ -1,6 +1,10 @@
 package com.example.demo.staticValue;
 
+/**
+ * 职业基本信息的常量值
+ */
 public class Role {
+
 
     public static final short ROLE_MAGIC=1;   //法师
     public static final short ROLE_KNIGHT=2;  //骑士

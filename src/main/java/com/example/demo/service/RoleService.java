@@ -1,7 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Attribute;
+import com.example.demo.model.EquipMsg;
 import com.example.demo.model.PlayerMsg;
+
+import java.util.List;
 
 public interface RoleService   {
 
@@ -25,4 +28,21 @@ public interface RoleService   {
      * 最终集合在一个对象中
      */
     PlayerMsg initPlayer(String user_id);
+
+
+    /**
+     *
+     * @param index 指哪个装备槽
+     * @param equipId 指装备id
+     * @return 给前端返回装备后的玩家信息（其实也可以在前端做运算）
+     *
+     * 前端告诉你是哪个位置的装备变更了就行，更新即可，后端不需要知道是装备还是卸下。。。
+     * 没有是null占位
+     */
+    Attribute equippedChange(int index,int equipId);
+
+
+
+
+
 }

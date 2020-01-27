@@ -20,4 +20,10 @@ public class UsersServiceImp implements UsersService {
     public int Register(int g_id, String g_pwd) {
         return users.Register(g_id,g_pwd);
     }
+
+
+    @Override
+    public boolean isOnline() {
+        return false;
+    }
 }

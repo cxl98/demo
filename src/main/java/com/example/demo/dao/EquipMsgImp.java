@@ -33,4 +33,9 @@ public class EquipMsgImp implements EquipMsgMapper {
     public List<EquipMsg> getEquipMents(List<Integer> list) {
         return sqlSession.selectList("equipments",list);
     }
+
+    @Override
+    public List<EquipMsg> getAllEquipMents() {
+        return sqlSession.selectList("allEquipments");
+    }
 }
