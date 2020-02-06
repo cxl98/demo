@@ -1,15 +1,16 @@
 package com.example.demo.service.imp;
 
-import com.example.demo.dao.GameDataImp;
 import com.example.demo.dao.GameDataMapper;
 import com.example.demo.model.GameData;
 import com.example.demo.service.GameDataService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GameDataServiceImpl implements GameDataService {
 
-    GameDataMapper gameDataMapper = new GameDataImp();
+    @Autowired
+    GameDataMapper gameDataMapper;
 
     @Override
     public GameData add(GameData data) {

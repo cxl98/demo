@@ -20,7 +20,7 @@
 
 
     <!--用于加载装备列表，已装备或者是背包中的装备均可复用-->
-    <select id="equipments"  resultType="com.example.demo.model.EquipMsg" parameterType="java.util.List">
+    <select id="getEquipMents"  resultType="com.example.demo.model.EquipMsg" parameterType="java.util.List">
         select equip_id,
                eq_name,
                attack,
@@ -38,7 +38,7 @@
     </select>
 
     <!--用于加载所有装备-->
-    <select id="allEquipments"  resultType="com.example.demo.model.EquipMsg" parameterType="java.util.List">
+    <select id="getAllEquipMents"  resultType="com.example.demo.model.EquipMsg" parameterType="java.util.List">
         select equip_id,
         eq_name,
         attack,

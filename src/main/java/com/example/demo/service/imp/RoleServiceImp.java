@@ -17,9 +17,10 @@ import java.util.List;
 @MapperScan("com.example.demo.dao")
 public class RoleServiceImp implements RoleService {
 
-    private GameDataMapper gameDataMapper = new GameDataImp();
-
-    private EquipMsgMapper equipMsgMapper = new EquipMsgImp();
+    @Autowired
+    private GameDataMapper gameDataMapper;
+    @Autowired
+    private EquipMsgMapper equipMsgMapper;
 
     private static int career;
 

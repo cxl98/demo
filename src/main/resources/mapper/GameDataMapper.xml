@@ -33,7 +33,7 @@
 
 
     <!--用于加载玩家入库数据，加载上来后进行初始化。在登录时完成-->
-    <select id="gameData" resultType="com.example.demo.model.GameData">
+    <select id="getDameDataById" resultType="com.example.demo.model.GameData">
         select  id
              ,user_id
              ,username

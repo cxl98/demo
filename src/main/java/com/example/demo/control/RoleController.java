@@ -22,7 +22,6 @@ public class RoleController {
 
     //角色信息加载
     @RequestMapping(value="/initPlayerMsg")
-    @ResponseBody
     public PlayerMsg initPlayerMsg(){
         /*
           注意这里，需要将psg信息，塞进redis里一份（这个服务器内存）
@@ -30,10 +29,12 @@ public class RoleController {
           这样在取对象时，安全又方便
          */
         PlayerMsg psg = roleServiceImp.initPlayer("184500237");
+
         HttpSession session = request.getSession();
         session.setAttribute("PlayerMsg",psg);
         return psg;
     }
+
 
 
 }

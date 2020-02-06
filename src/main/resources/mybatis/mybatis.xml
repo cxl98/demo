@@ -26,7 +26,7 @@
 <configuration>
     <properties>
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/mybatis-110"/>
+        <property name="url" value="jdbc:mysql://47.93.225.242:3306/mybatis-110"/>
         <property name="username" value=""/>
         <property name="password" value=""/>
     </properties>
@@ -40,7 +40,7 @@
             <!-- 数据源，池类型的数据源 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/game?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="url" value="jdbc:mysql://47.93.225.242:3306/game?useUnicode=true&amp;characterEncoding=UTF-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="19990315"/>
             </dataSource>
