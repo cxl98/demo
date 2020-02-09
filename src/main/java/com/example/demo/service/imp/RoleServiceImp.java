@@ -21,11 +21,15 @@ public class RoleServiceImp implements RoleService {
     private GameDataMapper gameDataMapper;
     @Autowired
     private EquipMsgMapper equipMsgMapper;
-
     private static int career;
+
+    @Autowired
+    private ServerMessageImp messageImp;
 
     private PlayerMsg newPlayer = new PlayerMsg();
     private Attribute newPlayerAttr =new Attribute();
+
+
 
     @Autowired
     RoleMapping role;
@@ -39,25 +43,17 @@ public class RoleServiceImp implements RoleService {
     @Override
     public PlayerMsg initPlayer(String user_id) {
         GameData gd = gameDataMapper.getDameDataById(user_id);
-
         newPlayer.setUser_id(user_id);
         newPlayer.setUsername(gd.getUsername());
         newPlayerAttr.setRole(gd.getCareer());
-
         career=gd.getCareer();
-
         String bags=gd.getEquipment();
-
         newPlayer.setBag(getBags(bags));//调取背包
-
         EquipMsg[] equipped=getEquipped(gd.getEquipped());//调取已装备
-
         newPlayerAttr.setEquipped(equipped);
         changeAttr(equipped);
-
         newPlayer.setPlayerAttr(newPlayerAttr);
         newPlayer.setMoney(gd.getMoney());
-
         return newPlayer;
     }
 
@@ -70,6 +66,42 @@ public class RoleServiceImp implements RoleService {
         changeAttr(newPlayerAttr.getEquipped());
 
         return newPlayer.getPlayerAttr();
+    }
+
+    @Override
+    public int getMoney(int before, int money) {
+        newPlayer.setMoney(before+money);
+        return newPlayer.getMoney();
+    }
+
+    @Override
+    public String buyEquipment(int equipmentId) {
+        int dValue=Equipment.equipHash.get(equipmentId).getEq_value()-newPlayer.getMoney();
+        if(dValue>0){
+            return messageImp.buyError(dValue);
+        }else{
+            newPlayer.getBag().add(Equipment.equipHash.get(equipmentId));
+            newPlayer.setMoney(0-dValue);
+            return messageImp.buySuccess(newPlayer.getMoney());
+        }
+    }
+
+    @Override
+    public String soleEquipment(int index,int equipmentId) {
+        newPlayer.setMoney(newPlayer.getMoney()+(int)(0.8*Equipment.equipHash.get(equipmentId).getEq_value()));
+        newPlayer.getBag().remove(index);
+        return "出售成功";
+    }
+
+    @Override
+    public String getEquipment(int equipmentId) {
+        newPlayer.getBag().add(Equipment.equipHash.get(equipmentId));
+        return "获得装备"+Equipment.equipHash.get(equipmentId).getEq_name();
+    }
+
+    @Override
+    public List<EquipMsg> checkBags() {
+        return newPlayer.getBag();
     }
 
     /**
@@ -110,7 +142,7 @@ public class RoleServiceImp implements RoleService {
                 extraHp += equipMsg.getEq_hp();
             }
         }
-        return roleAddStrength(extraHp);
+        return roleAddHpStrength(extraHp);
     }
 
     private int addMP(EquipMsg[] equipped){
@@ -121,7 +153,7 @@ public class RoleServiceImp implements RoleService {
                 extraMp += equipMsg.getEq_mp();
             }
         }
-        return roleAddStrength(extraMp);
+        return roleAddMpStrength(extraMp);
 
     }
 
@@ -133,7 +165,7 @@ public class RoleServiceImp implements RoleService {
                 extraDef += equipMsg.getPhy_def();
             }
         }
-        return roleAddStrength(extraDef);
+        return roleAddDefStrength(extraDef);
 
     }
 
@@ -145,21 +177,58 @@ public class RoleServiceImp implements RoleService {
                 extraDamage += equipMsg.getAttack();
             }
         }
-        return roleAddStrength(extraDamage);
+        return roleAddAttStrength(extraDamage);
 
     }
 
     //角色相加策略
-    private int roleAddStrength(int extra){
+    private int roleAddHpStrength(int extra){
         if (career == Role.ROLE_MAGIC){
             return Role.MAGIC_HP+extra;
         }else if(career == Role.ROLE_KNIGHT){
             return Role.KNIGHT_HP+extra;
         }else if(career == Role.ROLE_SWORD){
-            return Role.SWORD_HP;
+            return Role.SWORD_HP+extra;
         }else{
             return 0;
         }
     }
+    //角色相加策略
+    private int roleAddMpStrength(int extra){
+        if (career == Role.ROLE_MAGIC){
+            return Role.MAGIC_MP+extra;
+        }else if(career == Role.ROLE_KNIGHT){
+            return Role.KNIGHT_MP+extra;
+        }else if(career == Role.ROLE_SWORD){
+            return Role.SWORD_MP+extra;
+        }else{
+            return 0;
+        }
+    }
+    //角色相加策略
+    private int roleAddDefStrength(int extra){
+        if (career == Role.ROLE_MAGIC){
+            return Role.MAGIC_DEFEND+extra;
+        }else if(career == Role.ROLE_KNIGHT){
+            return Role.KNIGHT_DEFEND+extra;
+        }else if(career == Role.ROLE_SWORD){
+            return Role.SWORD_DEFEND+extra;
+        }else{
+            return 0;
+        }
+    }
+    //角色相加策略
+    private int roleAddAttStrength(int extra){
+        if (career == Role.ROLE_MAGIC){
+            return Role.MAGIC_DAMAGE+extra;
+        }else if(career == Role.ROLE_KNIGHT){
+            return Role.KNIGHT_DAMAGE+extra;
+        }else if(career == Role.ROLE_SWORD){
+            return Role.SWORD_DAMAGE+extra;
+        }else{
+            return 0;
+        }
+    }
+
 
 }

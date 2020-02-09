@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="CSS/index.css">
         <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+        <script src="js/details.js"></script>
     </head>
     <body id="body" onload="initPlayerMsg()">
     <div id="map" title="地图"></div>
@@ -88,23 +89,22 @@
 
 
     <div id="skill_panel" class="warrior">
-
         <img src="img/magic.png" alt="" id="skill_panel_magic_img">
         <h1>技能:法师</h1>
         <div id="skill_magic_one">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_one.png" alt="" title="锥形范围区域，站在某个位置内将受到3/2/1束攻击，每束造成（5+0.8*攻击力）CD:5秒 不耗蓝">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_one.png" alt="" id="magic_mes_one" >
             <h3 style="color: white;">F(法球散发)</h3>
         </div>
         <div id="skill_magic_two">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_two.png" alt="" title="攻击力+10，击中的玩家防御力降低，并且每秒造成5-8真实伤害（持续两秒）CD:8秒 耗蓝:10">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_two.png" alt="" id="magic_mes_two" >
             <h3 style="color: white;">Q(元素附魔)</h3>
         </div>
         <div id="skill_magic_three">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_three.png" alt="" title="自身周围有法力磁场保护，对碰到的敌人造成持续伤害（每秒造成10+0.6*攻击力）CD:4秒 耗蓝:40">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_three.png" alt="" id="magic_mes_three" >
             <h3 style="color: white;">W(魔法环绕)</h3>
         </div>
         <div id="skill_magic_four">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_four.png" alt="" title="自身周围有法力磁场保护，对碰到的敌人造成持续伤害（每秒造成10+0.6*攻击力）CD:15秒 耗蓝:80">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_four.png" alt="" id="magic_mes_four" >
             <h3 style="color: white;">E(死亡吟唱)</h3>
         </div>
 
@@ -125,14 +125,6 @@
         <button id="help" title="帮助"></button>
     </div>
 
-
-<!--    <div id="test" style="display: block">-->
-<!--        <p>{{user_id}}</p>-->
-<!--        <p>hp:{{playerAttr.hp}}</p>-->
-<!--        <p>mp:{{playerAttr.mp}}</p>-->
-<!--        <p>damage:{{playerAttr.damage}}</p>-->
-<!--        <p>def:{{playerAttr.def}}</p>-->
-<!--    </div>-->
     </body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="js/index.js"></script>
@@ -243,6 +235,22 @@
                 key: 'quality',
             }
         ];
+
+
+
+        function buyEquipment(equipmentId) {
+            $.ajax({
+                url:'/buyEquipment',
+                type:'post',
+                data:{
+                    "equipmentId":equipmentId
+                },
+                success(res){
+                    //直接交给后端处理了，返回一个是否购买成功的信息
+                    alert(res)
+                }
+            })
+        }
 
     </script>
 </html>

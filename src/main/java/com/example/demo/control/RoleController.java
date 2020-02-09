@@ -2,8 +2,10 @@ package com.example.demo.control;
 
 import com.example.demo.model.PlayerMsg;
 import com.example.demo.service.imp.RoleServiceImp;
+import com.example.demo.service.imp.ServerMessageImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,12 +31,21 @@ public class RoleController {
           这样在取对象时，安全又方便
          */
         PlayerMsg psg = roleServiceImp.initPlayer("184500237");
-
         HttpSession session = request.getSession();
         session.setAttribute("PlayerMsg",psg);
         return psg;
     }
 
+
+    @RequestMapping(value="/buyEquipment")
+    public String buyEquipment(@RequestParam String equipmentId){
+        return roleServiceImp.buyEquipment(Integer.valueOf(equipmentId));
+    }
+
+    @RequestMapping(value="/soleEquipment")
+    public String soleEquipment(@RequestParam int index,@RequestParam int equipmentId){
+        return roleServiceImp.soleEquipment(index,equipmentId);
+    }
 
 
 }
