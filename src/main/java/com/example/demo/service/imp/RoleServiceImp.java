@@ -50,7 +50,7 @@ public class RoleServiceImp implements RoleService {
         String bags=gd.getEquipment();
         newPlayer.setBag(getBags(bags));//调取背包
         EquipMsg[] equipped=getEquipped(gd.getEquipped());//调取已装备
-        newPlayerAttr.setEquipped(equipped);
+        newPlayer.setEquipped(equipped);
         changeAttr(equipped);
         newPlayer.setPlayerAttr(newPlayerAttr);
         newPlayer.setMoney(gd.getMoney());
@@ -62,8 +62,8 @@ public class RoleServiceImp implements RoleService {
         /*
             从hash中拿出装备，修改玩家已装备的数组，然后还要进行玩家数据更新
          */
-        newPlayerAttr.getEquipped()[index]=Equipment.equipHash.get(equipId);
-        changeAttr(newPlayerAttr.getEquipped());
+        newPlayer.getEquipped()[index]=Equipment.equipHash.get(equipId);
+        changeAttr(newPlayer.getEquipped());
 
         return newPlayer.getPlayerAttr();
     }

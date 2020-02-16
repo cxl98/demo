@@ -18,8 +18,8 @@ public class Operation implements Serializable {
 
     public static final long serialVersionUID=213213213L;
 
-    private char effectAttr;
-    private int dValue;
+    private int op1;
+    private int op2;
     private String fromID;
     private String toID;
 

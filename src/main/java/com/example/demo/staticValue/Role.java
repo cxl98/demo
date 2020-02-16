@@ -5,13 +5,6 @@ package com.example.demo.staticValue;
  */
 public class Role {
 
-    public static final char HM_H='H';//影响属性，hp血量
-    public static final char HM_M='M';//影响属性，mp蓝量
-    public static final char HM_D='D';//影响属性，def防御值
-    public static final char HM_A='M';//影响属性，attack伤害值
-
-
-
     public static final short ROLE_MAGIC=1;   //法师
     public static final short ROLE_KNIGHT=2;  //骑士
     public static final short ROLE_SWORD=3;   //剑士
