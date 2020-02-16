@@ -2,8 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" xmlns:v-on="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +10,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="CSS/index.css">
-        <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
-        <script src="js/details.js"></script>
     </head>
     <body id="body" onload="initPlayerMsg()">
     <div id="map" title="地图"></div>
@@ -20,7 +17,7 @@
         <div id="role" title="角色头像"></div>
         <div id="blood" title="血量值"></div>
         <div id="gold" title="金币"><span id="gold_">
-            {{money}}
+
         </span></div>
     </div>
     <button id="chat_room" title="聊天室"></button>
@@ -30,81 +27,64 @@
         </form>
     </div>
     <div id="fight_panel"></div>
-<!--    <div id="self_panel_warrior">-->
-<!--        <img src="img/warrior.png" alt="" id="self_panel_warrior_img">-->
-<!--        <h1>职业:战士</h1>-->
-<!--        <h2 id="hp">HP &nbsp;&nbsp;&nbsp;<div id="xl" title="血量">180</div></h2>-->
-<!--        <h2 id="mp">MP &nbsp;&nbsp;<div id="ll" title="蓝量">150</div></h2>-->
-<!--        <div id="gj">-->
-<!--            <img src="img/gongjili.png" alt="" title="攻击力">-->
-<!--            &nbsp;<p>:40</p>-->
-<!--        </div>-->
-<!--        <div id="fy">-->
-<!--            <img src="img/fangyuli.png" alt="" title="防御力"><p>:25</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div id="self_panel_magic">-->
-<!--        <img src="img/magic.png" alt="" id="self_panel_magic_img">-->
-<!--        <h1>职业:法师</h1>-->
-<!--        <h2 id="hp">HP &nbsp;&nbsp;&nbsp;<div id="xl" title="血量">150</div></h2>-->
-<!--        <h2 id="mp">MP &nbsp;&nbsp;<div id="ll" title="蓝量">200</div></h2>-->
-<!--        <div id="gj">-->
-<!--            <img src="img/gongjili.png" alt="" title="攻击力">-->
-<!--            &nbsp;<p>:30</p>-->
-<!--        </div>-->
-<!--        <div id="fy">-->
-<!--            <img src="img/fangyuli.png" alt="" title="防御力"><p>:20</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div id="self_panel_knight">-->
-<!--        <img src="img/knight.png" alt="" id="self_panel_knight_img">-->
-<!--        <h1>职业:骑士</h1>-->
-<!--        <h2 id="hp">HP &nbsp;&nbsp;&nbsp;<div id="xl" title="血量">200</div></h2>-->
-<!--        <h2 id="mp">MP &nbsp;&nbsp;<div id="ll" title="蓝量">150</div></h2>-->
-<!--        <div id="gj">-->
-<!--            <img src="img/gongjili.png" alt="" title="攻击力">-->
-<!--            &nbsp;<p>:35</p>-->
-<!--        </div>-->
-<!--        <div id="fy">-->
-<!--            <img src="img/fangyuli.png" alt="" title="防御力"><p>:35</p>-->
-<!--        </div>-->
-<!--    </div>-->
-
-
-    <div id="self_panel_magic">
-        <div id="test">
-            <img src="img/magic.png" alt="" id="self_panel_magic_img">
-            <h1>职业:法师</h1>
-            <h2 id="hp">HP &nbsp;&nbsp;&nbsp;<div id="xl" title="血量">{{playerAttr.hp}}</div></h2>
-            <h2 id="mp">MP &nbsp;&nbsp;<div id="ll" title="蓝量">{{playerAttr.mp}}</div></h2>
-            <div id="gj">
-                <img src="img/gongjili.png" alt="" title="攻击力">
-                &nbsp;<p>:{{playerAttr.damage}}</p>
-            </div>
-            <div id="fy">
-                <img src="img/fangyuli.png" alt="" title="防御力"><p>:{{playerAttr.def}}</p>
-            </div>
+    <div id="self_panel_warrior">
+        <img src="img/warrior.png" alt="" id="self_panel_warrior_img">
+        <h1>职业:战士</h1>
+        <h2 id="hp">HP &nbsp;&nbsp;&nbsp;<div id="xl" title="血量">180</div></h2>
+        <h2 id="mp">MP &nbsp;&nbsp;<div id="ll" title="蓝量">150</div></h2>
+        <div id="gj">
+            <img src="img/gongjili.png" alt="" title="攻击力">
+            &nbsp;<p>:40</p>
+        </div>
+        <div id="fy">
+            <img src="img/fangyuli.png" alt="" title="防御力"><p>:25</p>
         </div>
     </div>
-
-
+    <div id="self_panel_magic">
+        <img src="img/magic.png" alt="" id="self_panel_magic_img">
+        <h1>职业:法师</h1>
+        <h2 id="hp">HP &nbsp;&nbsp;&nbsp;<div id="xl" title="血量">150</div></h2>
+        <h2 id="mp">MP &nbsp;&nbsp;<div id="ll" title="蓝量">200</div></h2>
+        <div id="gj">
+            <img src="img/gongjili.png" alt="" title="攻击力">
+            &nbsp;<p>:30</p>
+        </div>
+        <div id="fy">
+            <img src="img/fangyuli.png" alt="" title="防御力"><p>:20</p>
+        </div>
+    </div>
+    <div id="self_panel_knight">
+        <img src="img/knight.png" alt="" id="self_panel_knight_img">
+        <h1>职业:骑士</h1>
+        <h2 id="hp">HP &nbsp;&nbsp;&nbsp;<div id="xl" title="血量">200</div></h2>
+        <h2 id="mp">MP &nbsp;&nbsp;<div id="ll" title="蓝量">150</div></h2>
+        <div id="gj">
+            <img src="img/gongjili.png" alt="" title="攻击力">
+            &nbsp;<p>:35</p>
+        </div>
+        <div id="fy">
+            <img src="img/fangyuli.png" alt="" title="防御力"><p>:35</p>
+        </div>
+    </div>
     <div id="skill_panel" class="warrior">
+
+
         <img src="img/magic.png" alt="" id="skill_panel_magic_img">
         <h1>技能:法师</h1>
         <div id="skill_magic_one">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_one.png" alt="" id="magic_mes_one" >
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_one.png" alt="" title="锥形范围区域，站在某个位置内将受到3/2/1束攻击，每束造成（5+0.8*攻击力）CD:5秒 不耗蓝">
             <h3 style="color: white;">F(法球散发)</h3>
         </div>
         <div id="skill_magic_two">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_two.png" alt="" id="magic_mes_two" >
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_two.png" alt="" title="攻击力+10，击中的玩家防御力降低，并且每秒造成5-8真实伤害（持续两秒）CD:8秒 耗蓝:10">
             <h3 style="color: white;">Q(元素附魔)</h3>
         </div>
         <div id="skill_magic_three">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_three.png" alt="" id="magic_mes_three" >
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_three.png" alt="" title="自身周围有法力磁场保护，对碰到的敌人造成持续伤害（每秒造成10+0.6*攻击力）CD:4秒 耗蓝:40">
             <h3 style="color: white;">W(魔法环绕)</h3>
         </div>
         <div id="skill_magic_four">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_four.png" alt="" id="magic_mes_four" >
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/magic_four.png" alt="" title="自身周围有法力磁场保护，对碰到的敌人造成持续伤害（每秒造成10+0.6*攻击力）CD:15秒 耗蓝:80">
             <h3 style="color: white;">E(死亡吟唱)</h3>
         </div>
 
@@ -124,7 +104,6 @@
         <button id="set" title="设置"></button>
         <button id="help" title="帮助"></button>
     </div>
-
     </body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="js/index.js"></script>
@@ -132,125 +111,14 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 
     <script>
-        var money = new Vue({
-            el:'#gold_',
-            data:{
-                money:0
-            }
-        });
-
-        
-
-        var mVue=new Vue({
-            el:'#test',
-            data:{
-                counter: 0,
-                user_id: '123',
-                username: '',
-                playerAttr: {
-                    role: 0,       //角色职业 1法师 2骑士 3剑士
-                    hp: 0,         //血量
-                    mp: 0,         //蓝量
-                    equipped:[], //已装备
-                    def: 0,        //防御力
-                    damage: 0,
-                },               //角色属性
-                bag:[],     //背包中的装备
-                money: 0
-            },
-            methods: {
-                initPlayerMsg() {
-                    $.ajax({
-                        url: '/initPlayerMsg',
-                        type: 'post',
-                        success(res) {
-                            mVue.user_id=res.user_id;
-                            mVue.username=res.username;
-                            mVue.bag=res.bag;
-                            mVue.money=res.money;
-                            mVue.playerAttr=res.playerAttr;
-                        }
-                    });
-                }
-            }
-        });
-
-        function initPlayerMsg() {
-                $.ajax({
-                    url:'/initPlayerMsg',
-                    type:'post',
-                    success(res) {
-                        mVue.user_id=res.user_id;
-                        mVue.username=res.username;
-                        mVue.bag=res.bag;
-                        mVue.money=res.money;
-                        mVue.playerAttr=res.playerAttr;
-                        money.money=res.money;
-                        console.log(mVue.user_id);
-                    }
-                });
-            window.document.getElementById("test").style.display="block";
-            // window.document.getElementById("gold_").style.display="block";
-        }
-
-        var equip = [
-            {
-                title: '装备序号',
-                key: 'equip_id'
-            },
-            {
-                title: "装备名称",
-                key: "eq_name"
-            },
-            {
-                title: "装备攻击",
-                key: "attack"
-            },
-            {
-                title: "装备防御",
-                key: "phy_def"
-            },
-            {
-                title: '装备血量',
-                key: 'eq_hp'
-            },
-            {
-                title: "装备蓝量",
-                key: "eq_mp"
-            },
-            {
-                title: "装备价值",
-                key: "eq_value"
-            },
-            {
-                title:'装备部位',
-                key:'eq_place'
-            },
-            {
-                title: '装备详情',
-                key: 'details',
-            },
-            {
-                title: '装备品质',
-                key: 'quality',
-            }
-        ];
-
-
-
-        function buyEquipment(equipmentId) {
+        function initPlayerMsg(){
             $.ajax({
-                url:'/buyEquipment',
-                type:'post',
-                data:{
-                    "equipmentId":equipmentId
-                },
-                success(res){
-                    //直接交给后端处理了，返回一个是否购买成功的信息
-                    alert(res)
-                }
-            })
+            url:'/initPlayerMsg',
+            type:'post',
+            success(res) {
+                console.log(res);
+            }
+        })
         }
-
     </script>
 </html>

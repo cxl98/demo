@@ -11,7 +11,7 @@ public interface RoleService   {
 
     Attribute Attr(Attribute attr);
 
-    /** 角色初始化
+    /**
      *
      * @return
      * 玩家初始化，先是加载game_data表中的所有数据
@@ -30,7 +30,7 @@ public interface RoleService   {
     PlayerMsg initPlayer(String user_id);
 
 
-    /**更换装备
+    /**
      *
      * @param index 指哪个装备槽
      * @param equipId 指装备id
@@ -40,46 +40,6 @@ public interface RoleService   {
      * 没有是null占位
      */
     Attribute equippedChange(int index,int equipId);
-
-
-    /**获得金币
-     *
-     * @param before 原先的金钱
-     * @param money 获得的金钱（可以是负数）
-     * @return 返回处理后的金钱数量
-     *
-     */
-    int getMoney(int before,int money);
-
-    /** 购买装备
-     *
-     * @param equipmentId 装备id
-     * @return 购买成功与否的信息
-     */
-    String buyEquipment(int equipmentId);
-
-    /**
-     *
-     * @param index 背包中的位置（前端获取）
-     * @param equipmentId 装备id
-     * @return 出售成功的信息
-     */
-    String soleEquipment(int index,int equipmentId);
-
-    /**
-     *
-     * @param equipmentId 装备id
-     * @return 获取装备
-     *
-     * 通过打怪、任务等方式获取到装备
-     */
-    String getEquipment(int equipmentId);
-
-    /**
-     *
-     * @return 打开背包
-     */
-    List<EquipMsg> checkBags();
 
 
 
