@@ -1,4 +1,4 @@
-package com.example.demo.netty_http.common;
+package com.example.demo.netty_http.net.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,5 +6,5 @@ import org.slf4j.LoggerFactory;
 public abstract class ConnectClient {
     protected static transient Logger logger= LoggerFactory.getLogger(ConnectClient.class);
 
-//    public abstract void init(String address,)
+    public abstract void init(String address);
 }
