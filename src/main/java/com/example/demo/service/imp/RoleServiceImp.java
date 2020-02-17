@@ -129,9 +129,9 @@ public class RoleServiceImp implements RoleService {
 
     private void changeAttr(EquipMsg[] equipped){
         newPlayerAttr.setDamage(addDamage(equipped));
-        newPlayerAttr.setMp(addDef(equipped));
-        newPlayerAttr.setHp(addMP(equipped));
-        newPlayerAttr.setDef(addHP(equipped));
+        newPlayerAttr.setMp(addMP(equipped));
+        newPlayerAttr.setHp(addHP(equipped));
+        newPlayerAttr.setDef(addDef(equipped));
     }
 
     private int addHP(EquipMsg[] equipped){
